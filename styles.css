@@ -1,12 +1,29 @@
 html {
     height: 100vh;
-    background: #B993D6;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #8CA6DB, #B993D6);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #8CA6DB, #B993D6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #FFA17F;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #00223E, #FFA17F);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #00223E, #FFA17F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 }
 
 .main-chat-window {
     height: 350px;
     overflow: auto;
+}
+
+.title {
+    color: white;
+}
+
+.subtitle {
+    color: whitesmoke;
+}
+
+h1 {
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+p {
+    font-family: 'Josefin Sans', sans-serif;
+    font-family: 'Karla', sans-serif;
 }
