@@ -16,6 +16,7 @@
   </head>
   <body>
     <div id= "app"> 
+      <div v-if="username === ''">
       <section class="section has-text-centered">
           <div class="container">
             <h1 class="title">
@@ -27,7 +28,7 @@
           </div>
       </section>
 
-      <section class="section" v-if="username === ''">
+      <section class="section">
         <div class="container">
           <div class="field">
             <label class="label">Username</label>
@@ -40,7 +41,7 @@
           </div>
         </div>
       </section>
-     
+      </div>
       <div v-else>
       <section class="section">
           <div class="container">
