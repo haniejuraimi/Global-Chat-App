@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Hello Bulma!</title>
+    <title>Global Chat</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     <!-- Custom Css -->
@@ -26,22 +26,59 @@
             </p>
           </div>
       </section>
-      
+
+      <section class="section" v-if="username === ''">
+        <div class="container">
+          <div class="field">
+            <label class="label">Username</label>
+              <div class="control">
+                <input 
+                v-on:keyup.enter ="saveUsername"
+                v-model="unsavedUsername"
+                class="input" type="text" placeholder="Enter your desired username">
+              </div>
+          </div>
+        </div>
+      </section>
+     
+      <div v-else>
       <section class="section">
           <div class="container">
-            <div class="box main-chat-window"> <div class="notification">
-              yeet
-            </div> </div>
+            <div class="box main-chat-window"> 
+              <div v-bind:class=" {'is-primary': messageObject.username === username}" class="notification" v-for= "messageObject in messages">
+                <p><strong> {{messageObject.username}} </strong></p>
+                {{messageObject.message}}
+              </div> 
+            </div>
           </div>
         </section>
     
         <section class="section">
             <div class="container">
-                <input class="input is-large" type="text" placeholder="Enter your message...">
+              <p class="subtitle">
+                You are sending messages as <strong style="color: whitesmoke;">{{username}}</strong>
+              </p>
+                <input 
+                 v-model="newMessage"
+                 v-on:keyup.enter ="enterNewMessage"
+                class="input is-large" type="text" placeholder="Enter your message...">
             </div>
+            <br>
+            <button class="button is-text" style="color:rgb(255, 149, 167)" v-on:click="logout">
+              Reset Session
+            </button>
         </section>
     </div>
+  </div>
+
+    <!-- VueJS File -->
   <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+      <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/6.6.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.6.0/firebase-firestore.js"></script>
+  <script src="firebase-config.js"></script>
+
   <script src="main.js"></script>
   </body>
 </html>
